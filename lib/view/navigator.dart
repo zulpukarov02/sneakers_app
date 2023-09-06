@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:sneakers_app/utils/constants.dart';
+import 'package:sneakers_app/view/bag/components/bag_view.dart';
 import 'package:sneakers_app/view/home/components/home_view.dart';
 
 class MainNavigator extends StatefulWidget {
@@ -20,9 +21,7 @@ class _MainNavigatorState extends State<MainNavigator> {
   PageController _pageController = PageController();
   List<Widget> _screans = [
     HomeView(),
-    Container(
-      color: Colors.purple,
-    ),
+    BagView(),
     Container(
       color: Colors.amber,
     ),
