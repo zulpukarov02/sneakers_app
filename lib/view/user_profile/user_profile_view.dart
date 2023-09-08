@@ -5,6 +5,7 @@ import 'package:sneakers_app/models/models.dart';
 import 'package:sneakers_app/theme/cusstom_app_theme.dart';
 import 'package:sneakers_app/utils/constants.dart';
 import 'package:sneakers_app/view/user_profile/components/app_bar.dart';
+import 'package:sneakers_app/view/user_profile/components/rounded_list_tile.dart';
 
 class UserProfileView extends StatefulWidget {
   const UserProfileView({Key? key}) : super(key: key);
@@ -32,16 +33,8 @@ class _UserProfileViewState extends State<UserProfileView> {
               TopUserInfo(width: width),
               SizedBox(height: height * 0.01),
               _userStatusListView(width, height),
-              FadeAnimation(
-                  delay: 2,
-                  child: Container(
-                    width: width,
-                    height: height / 3,
-                    color: Colors.red,
-                    child: Column(
-                      children: [Text("Dashbourd")],
-                    ),
-                  ))
+              RoundetListWidget(width: width, height: height),
+              ButtomSideText(width: width, height: height)
             ],
           ),
         ),
@@ -111,6 +104,178 @@ class _UserProfileViewState extends State<UserProfileView> {
                     );
                   }),
             )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ButtomSideText extends StatelessWidget {
+  const ButtomSideText({
+    super.key,
+    required this.width,
+    required this.height,
+  });
+
+  final double width;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeAnimation(
+      delay: 2,
+      child: SizedBox(
+        width: width,
+        height: height / 6.5,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "My Ackount",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: Colors.grey,
+              ),
+            ),
+            SizedBox(height: height * 0.01),
+            const Text(
+              "Switch to Other Account",
+              style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 17,
+                  color: Colors.blue),
+            ),
+            SizedBox(height: height * 0.015),
+            Text(
+              "Log Out",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                color: Colors.red[500],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RoundetListWidget extends StatelessWidget {
+  const RoundetListWidget({
+    super.key,
+    required this.width,
+    required this.height,
+  });
+
+  final double width;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeAnimation(
+      delay: 2,
+      child: Container(
+        width: width,
+        height: height * 0.35,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Dashbourd",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15,
+                  color: Colors.grey),
+            ),
+            const SizedBox(height: 0.01),
+            RoundedListTile(
+              icon: Icons.wallet_travel_outlined,
+              title: 'Paiments',
+              leaDingBackColor: Colors.green[600],
+              trailing: Container(
+                width: 90,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.blue,
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "2 New",
+                      style: TextStyle(
+                        color: AppConstantsColor.lightTextColor,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: AppConstantsColor.lightTextColor,
+                      size: 15,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            RoundedListTile(
+              icon: Icons.archive,
+              title: "Achievement's",
+              leaDingBackColor: Colors.yellow[600],
+              trailing: Container(
+                width: 90,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: AppConstantsColor.darkTextColor,
+                      size: 15,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            RoundedListTile(
+              icon: Icons.shield,
+              title: "Privasy",
+              leaDingBackColor: Colors.grey[600],
+              trailing: Container(
+                width: 160,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.red,
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Action Needed",
+                      style: TextStyle(
+                        color: AppConstantsColor.lightTextColor,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: AppConstantsColor.darkTextColor,
+                      size: 15,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
