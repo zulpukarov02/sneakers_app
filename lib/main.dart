@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sneakers Shop App',
       theme: ThemeData(fontFamily: "Guicksand"),
+      debugShowCheckedModeBanner: false,
       home: MainNavigator(),
     );
   }

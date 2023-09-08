@@ -11,10 +11,10 @@ class EmptyState extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return SizedBox(
       width: width,
-      height: height * 0.9,
-      child: Column(
+      height: height * 0.7,
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           FadeAnimation(
             delay: 0.5,
             child: Text(
@@ -25,7 +25,7 @@ class EmptyState extends StatelessWidget {
           FadeAnimation(
             delay: 0.5,
             child: Text(
-              "Once you have added, come back:",
+              "Once you have added, come back:)",
               style: AppThemes.bagEmptyListSubTitle,
             ),
           ),

@@ -4,6 +4,7 @@ import 'package:sneakers_app/animations/fade_animations.dart';
 import 'package:sneakers_app/data/dummy_data.dart';
 import 'package:sneakers_app/models/models.dart';
 import 'package:sneakers_app/theme/cusstom_app_theme.dart';
+import 'package:sneakers_app/utils/app_methods.dart';
 import 'package:sneakers_app/utils/constants.dart';
 import 'package:sneakers_app/view/details/components/AddToBagButton.dart';
 import 'package:sneakers_app/view/details/components/TopProductImageAndBg.dart';
@@ -59,7 +60,13 @@ class _DetailsViewState extends State<DetailsView> {
                       _sizeAndCountry(size),
                       _bottomSizeSelection(size),
                       AddToBagButton(
-                          size: size, color: widget.model.modelColor),
+                        onPressed: () {
+                          AppMethods.addToCart(widget.model, context);
+                        },
+                        size: size,
+                        color: widget.model.modelColor,
+                        text: const Text("ADD TO BAG"),
+                      ),
                     ],
                   ),
                 ),

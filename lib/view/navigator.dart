@@ -4,6 +4,7 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:sneakers_app/utils/constants.dart';
 import 'package:sneakers_app/view/bag/components/bag_view.dart';
 import 'package:sneakers_app/view/home/components/home_view.dart';
+import 'package:sneakers_app/view/user_profile/user_profile_view.dart';
 
 class MainNavigator extends StatefulWidget {
   const MainNavigator({
@@ -22,9 +23,7 @@ class _MainNavigatorState extends State<MainNavigator> {
   List<Widget> _screans = [
     HomeView(),
     BagView(),
-    Container(
-      color: Colors.amber,
-    ),
+    UserProfileView(),
   ];
   int _selecktedIndex = 0;
   void _onItemTapped(int index) {

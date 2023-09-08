@@ -18,7 +18,6 @@ class FadeAnimation extends StatelessWidget {
           Curves.easeOut);
     return PlayAnimation<MultiTweenValues<AniProps>>(
       delay: Duration(milliseconds: (500 * delay).round()),
-      child: child,
       duration: tween.duration,
       tween: tween,
       builder: (context, child, value) => Opacity(
@@ -28,6 +27,7 @@ class FadeAnimation extends StatelessWidget {
           child: child,
         ),
       ),
+      child: child,
     );
   }
 }

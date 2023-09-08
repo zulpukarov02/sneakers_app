@@ -5,9 +5,13 @@ class AddToBagButton extends StatelessWidget {
     super.key,
     required this.size,
     required this.color,
+    required this.text,
+    required this.onPressed,
   });
   final Color color;
   final Size size;
+  final Text text;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +25,8 @@ class AddToBagButton extends StatelessWidget {
           color: color,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          onPressed: () {},
-          child: Text("ADD TO BAG"),
+          onPressed: onPressed,
+          child: text,
         ),
       ),
     );
